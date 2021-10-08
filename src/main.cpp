@@ -4,7 +4,8 @@
 #include <unistd.h>
 
 int main(int argc, char* argv[]) {
-	if (argc <= 1) {
+	// Check if correct usage
+	if (argc != 2) {
 		std::cout << "Usage: bin/out <path to video file>" << std::endl;
 		return -1;
 	}
@@ -32,8 +33,6 @@ int main(int argc, char* argv[]) {
 		// Read the video
 		vidcap >> frame;
 		i = (++i) % 2;
-
-		std::cout << "hello" << std::endl;
 
 		if (frame.empty()) {
 			// Reset if video is done
